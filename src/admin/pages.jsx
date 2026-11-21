@@ -73,7 +73,7 @@ export function AdminLayout() {
   return (
     <div className="admin">
       <aside className={`admin-side ${menu ? 'open' : ''}`}>
-        <Link to="/admin" className="logo"><LogoMark size={32} /><span className="logo-text">A<span>Softix</span></span></Link>
+        <Link to="/admin" className="logo"><LogoMark size={32} /><span className="logo-text">ASoftix</span></Link>
         <nav aria-label="Admin">
           {ADMIN_NAV.map(([to, label, icon, end]) => (
             <NavLink key={to} to={to} end={end} onClick={() => setMenu(false)}><Icon name={icon} size={18} />{label}</NavLink>

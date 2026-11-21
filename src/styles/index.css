@@ -198,8 +198,7 @@ main:focus { outline: none; }
 .site-header.scrolled { border-bottom-color: var(--line); background: var(--header-bg-solid); }
 .header-inner { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); }
-.logo-text { font-weight: 800; font-size: 1.3rem; letter-spacing: -0.03em; }
-.logo-text span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.logo-text { font-family: 'Montserrat', var(--font); font-weight: 500; font-size: 1.55rem; letter-spacing: -0.01em; color: var(--text); }
 .logo:hover { color: var(--text-strong); }
 
 .main-nav ul { list-style: none; display: flex; gap: 4px; }
@@ -561,7 +560,7 @@ main:focus { outline: none; }
 .theme-toggle:hover { border-color: var(--cyan); color: var(--link); }
 
 /* Logo */
-.logo-mark { flex: none; filter: drop-shadow(0 6px 14px color-mix(in srgb, var(--blue) 35%, transparent)); }
+.logo-mark { flex: none; color: var(--text); }
 
 /* Photos and screenshots */
 .avatar-photo { object-fit: cover; background: var(--surface-2); padding: 0; }
