@@ -9,6 +9,30 @@ import ListEditor from './ListEditor';
 import { FieldGrid } from './fields';
 import { api, slugify } from './api';
 
+// Keeps a slug in step with the title while it is still the automatic one.
+// A slug the admin typed by hand is left alone. Duplicate slugs get a number.
+function withAutoSlugs(list, prev) {
+  const used = new Set();
+  return list.map((item, i) => {
+    let slug = item.slug;
+    const before = prev[i];
+    if (!prev.includes(item)) {
+      if (!before) {
+        slug = slug || slugify(item.title);
+      } else if (item.title !== before.title) {
+        // Title changed: follow it only if the slug was automatic and not edited in this change.
+        const wasAuto = !before.slug || before.slug === slugify(before.title);
+        if (wasAuto && item.slug === before.slug) slug = slugify(item.title);
+      }
+    }
+    if (!slug) return item.slug === '' ? item : { ...item, slug: '' };
+    let unique = slug;
+    for (let n = 2; used.has(unique); n++) unique = `${slug}-${n}`;
+    used.add(unique);
+    return unique === item.slug ? item : { ...item, slug: unique };
+  });
+}
+
 const ICONS = ['layout', 'code', 'server', 'box', 'chart', 'phone', 'spark', 'chat', 'clipboard', 'layers', 'shield'];
 
 /* ------------------------------------------------------------------ Login */
@@ -244,7 +268,7 @@ export function AdminProjects() {
     { key: 'demo', label: 'Live demo URL', type: 'url' },
     { key: 'repo', label: 'Repository URL', type: 'url' },
   ];
-  const onChange = (list) => update('projects', list.map((p) => ({ ...p, slug: p.slug || slugify(p.title) })));
+  const onChange = (list) => update('projects', withAutoSlugs(list, draft.projects));
   return (
     <>
       <Head title="Projects" text="Portfolio case studies. Featured projects appear on the homepage." />
@@ -275,7 +299,7 @@ export function AdminServices() {
     { key: 'deliverables', label: 'Deliverables', type: 'lines', rows: 6, wide: true, help: 'One per line.' },
     { key: 'ideal', label: 'Ideal for', type: 'textarea', wide: true },
   ];
-  const onChange = (list) => update('services', list.map((s) => ({ ...s, slug: s.slug || slugify(s.title) })));
+  const onChange = (list) => update('services', withAutoSlugs(list, draft.services));
   return (
     <>
       <Head title="Services" text="Only mark a service “Live” when you can deliver, test and support it." />
