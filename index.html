@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASoftix | Turning Ideas Into Digital Solutions</title>
+    <meta name="description" content="ASoftix is a Lahore-based software studio building modern websites, full-stack web apps and business systems for startups and small businesses." />
+    <meta name="theme-color" content="#101827" />
+    <meta property="og:title" content="ASoftix | Turning Ideas Into Digital Solutions" />
+    <meta property="og:description" content="Modern websites, full-stack web apps and business systems for startups and small businesses." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/brand/og-image.png" />
+    <script>
+      // Apply the saved light/dark choice before the page paints (avoids a flash).
+      try { var t = localStorage.getItem('asoftix-theme') || (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'); document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

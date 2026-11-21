@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- TODO: replace https://asoftix.com with the confirmed production domain -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://asoftix.com/</loc></url>
+  <url><loc>https://asoftix.com/services</loc></url>
+  <url><loc>https://asoftix.com/portfolio</loc></url>
+  <url><loc>https://asoftix.com/portfolio/business-website</loc></url>
+  <url><loc>https://asoftix.com/portfolio/commerce-platform</loc></url>
+  <url><loc>https://asoftix.com/portfolio/bookshop-management</loc></url>
+  <url><loc>https://asoftix.com/about</loc></url>
+  <url><loc>https://asoftix.com/team</loc></url>
+  <url><loc>https://asoftix.com/contact</loc></url>
+  <url><loc>https://asoftix.com/privacy</loc></url>
+</urlset>
