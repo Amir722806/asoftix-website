@@ -43,7 +43,10 @@ export default function Footer() {
         </div>
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
-          <Link to="/privacy">Privacy notice</Link>
+          <div className="footer-bottom-links">
+            <Link to="/privacy">Privacy notice</Link>
+            <Link to="/admin/login" className="footer-admin">Admin</Link>
+          </div>
         </div>
       </Container>
     </footer>
